@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class Desafio2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Digite o número de colaboradores: ");
+        int numColaboradores = scanner.nextInt();
+
+
+        for (int i = 0; i < numColaboradores; i++) {
+
+            System.out.print("Digite o salário atual do colaborador " + (i + 1) + ": ");
+            double salario = scanner.nextDouble();
+
+
+            double limite1 = 280;
+            double limite2 = 700;
+            double limite3 = 1500;
+
+            System.out.println("Salário antes do reajuste: R$" + salario);
+            double percentualAumento;
+            double aumento;
+            if (salario <= limite1) {
+                percentualAumento = 20;
+                aumento = salario * 0.20; 
+            } else if (salario <= limite2) {
+                percentualAumento = 15;
+                aumento = salario * 0.15; // 
+            } else if (salario <= limite3) {
+                percentualAumento = 10;
+                aumento = salario * 0.10; // 
+            } else {
+                percentualAumento = 5;
+                aumento = salario * 0.05; //
+            }
+            System.out.println("Valor do aumento: R$" + aumento);
+
+            double novoSalario = salario + aumento;
+            System.out.println("Novo salário após o aumento: R$" + novoSalario);
+
+            double aumentoReal = aumento * (1 - 0.038);
+            System.out.println("Valor do aumento real descontado a inflação: R$" + aumentoReal);
+           
+            
+        }
+
+        scanner.close();
+    }
+}
